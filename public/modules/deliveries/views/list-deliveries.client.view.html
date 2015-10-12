@@ -1,0 +1,19 @@
+<section data-ng-controller="DeliveriesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Deliveries</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="delivery in deliveries" data-ng-href="#!/deliveries/{{delivery._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="delivery.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="delivery.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="delivery.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!deliveries.$resolved || deliveries.length">
+    	No Deliveries yet, why don't you <a href="/#!/deliveries/create">create one</a>?
+    </div>
+</section>

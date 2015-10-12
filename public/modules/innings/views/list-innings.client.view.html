@@ -1,0 +1,19 @@
+<section data-ng-controller="InningsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Innings</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="inning in innings" data-ng-href="#!/innings/{{inning._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="inning.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="inning.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="inning.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!innings.$resolved || innings.length">
+    	No Innings yet, why don't you <a href="/#!/innings/create">create one</a>?
+    </div>
+</section>

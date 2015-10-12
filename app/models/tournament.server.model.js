@@ -27,6 +27,11 @@ var TournamentSchema = new Schema({
         default: '',
         trim: true      // types have specific functions e.g. trim, lowercase, uppercase - http://mongoosejs.com/docs/api.html#schema-string-js
     },
+    season: {
+        type: String,
+        default: '',
+        trim: true      // types have specific functions e.g. trim, lowercase, uppercase - http://mongoosejs.com/docs/api.html#schema-string-js
+    },
     name: {
         type: String,
         default: '',

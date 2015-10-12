@@ -18,7 +18,8 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
             // Create new Tournament object
             var tournament = new Tournaments ({
                 name: this.name,
-                description: this.description
+                description: this.description,
+                season: this.season
             });
 
             // Redirect after save

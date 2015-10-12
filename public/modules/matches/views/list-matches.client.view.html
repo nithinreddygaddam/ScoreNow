@@ -1,0 +1,22 @@
+<section data-ng-controller="MatchesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Matches</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="match in matches" data-ng-href="#!/matches/{{match._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="match.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="match.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="match.name"></h4>
+            <span>{{ match.teamA.name }}</span>
+            <span>{{ match.teamB.name }}</span>
+            <h4 class="list-group-item-heading" data-ng-bind="match.overs"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!matches.$resolved || matches.length">
+    	No Matches yet, why don't you <a href="/#!/matches/create">create one</a>?
+    </div>
+</section>
